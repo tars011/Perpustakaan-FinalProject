@@ -22,17 +22,11 @@ if( !isset($_SESSION["login"]) ) {
 
    <!-- Custom admin CSS file link  -->
    <link rel="stylesheet" href="css/style_admin.css">
-   <style>
-      /* Add your CSS styles here */
-      /* Include the styles you provided in the original HTML */
-   </style>
 
 </head>
 <body>
    
 <?php include 'admin_header.php'; ?>
-
-<!-- Admin dashboard section starts  -->
 
 <section class="dashboard">
 
@@ -75,14 +69,10 @@ if( !isset($_SESSION["login"]) ) {
          <h3><?php echo $fetch_buku['total_buku']; ?></h3>
          <p>Total Buku</p>
       </div>
-
-      <!-- Add more cards as needed -->
       
    </div>
 
 </section>
-
-<!-- Admin dashboard section ends -->
 
 <!-- Custom admin JS file link  -->
 <script src="js/admin_script.js"></script>
