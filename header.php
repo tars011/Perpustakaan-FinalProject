@@ -1,5 +1,5 @@
 <?php
-<?php print_r($_SESSION); print_r($_COOKIE); ?>
+print_r($_SESSION); print_r($_COOKIE);  // to check cookie and session
 
 //cek cookie
 if ( !isset($_SESSION['username']) && !isset($_SESSION['name']) && !isset($_SESSION['email']) ) {
