@@ -28,7 +28,6 @@ if( isset($_SESSION["login"]) ) {
 
 </head>
 <body>
-<?php print_r($_SESSION); print_r($_COOKIE); ?>
 <?php include 'header.php'; ?>
 
 <section class="home">
