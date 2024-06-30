@@ -152,7 +152,7 @@ if (isset($_GET['update'])) {
 
    <div class="box-container">
       <?php
-         $select_user = mysqli_query($conn, "SELECT * FROM `user`") or die('Query failed');
+         $select_user = mysqli_query($conn, "SELECT * FROM user LIMIT 18446744073709551615 OFFSET 1") or die('Query failed');
          while($fetch_user = mysqli_fetch_assoc($select_user)){
       ?>
       <div class="box">
