@@ -163,6 +163,7 @@ section{
 }
  
 .header .flex .logo{
+   width: 12.5rem;
    font-size: 2.5rem;
    color:var(--black);
 }
@@ -184,6 +185,10 @@ section{
 
 .header .flex .navbar a:hover{
    color:var(--purple);
+}
+
+.header .flex .icons{
+   width: 12.5rem;
 }
 
 .header .flex .icons div{
