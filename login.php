@@ -57,7 +57,7 @@ if (isset($_POST['login'])) {
             }
 
             if ($row['email'] === 'admin64nteng@gmail.com' || $row['username'] === 'admin') {
-                header("Location: admin-page/admin.php");
+                header("Location: admin_index.php");
             } else {
                 header("Location: index.php");
             }
