@@ -81,7 +81,7 @@ if (isset($_GET['update'])) {
          <p> Name : <span><?php echo $fetch_user['nama']; ?></span> </p>
          <p> Email : <span><?php echo $fetch_user['email']; ?></span> </p>
          <p> Phone Number : <span><?php echo $fetch_user['no_telepon']; ?></span> </p>
-         <a href="admin_user.php?update=<?php echo $fetch_user['id_user']; ?>" class="update-btn">Update User</a>
+         <a href="admin_user.php?update=<?php echo $fetch_user['id_user']; ?>" class="option-btn">Update User</a>
          <a href="admin_user.php?delete=<?php echo $fetch_user['id_user']; ?>" onclick="return confirm('Delete this user?');" class="delete-btn">Delete User</a>
       </div>
       <?php
@@ -90,16 +90,18 @@ if (isset($_GET['update'])) {
    </div>
    <?php if 
    (isset($user_data)) { ?>
-   <form action="admin_user.php" method="post" class="update-form">
+   <form action="admin_user.php" method="post" class="update-form" id="update-user">
+      <h3>Update:</h3>
       <input type="hidden" name="id_user" value="<?php echo $user_data['id_user']; ?>">
       <p> Username: <input type="text" name="username" value="<?php echo $user_data['username']; ?>" required> </p>
       <p> Name: <input type="text" name="nama" value="<?php echo $user_data['nama']; ?>" required> </p>
       <p> Email: <input type="email" name="email" value="<?php echo $user_data['email']; ?>" required> </p>
       <p> Phone Number: <input type="text" name="no_telepon" value="<?php echo $user_data['no_telepon']; ?>" required> </p>
-      <input type="submit" name="update_user" value="Update User" class="btn">
+      <a name="update_user" class="option-btn">Update</a>
+      <a id="close-update" class="delete-btn" onclick="window.location.href='admin_user.php';">Cancel</a>
+      <script>window.location.href='#update-user';</script>
    </form>
    <?php } ?>
-
 </section>
 
 <!-- Custom admin JS file link -->

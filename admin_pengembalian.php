@@ -78,7 +78,7 @@ if (isset($_GET['update'])) {
             <th>Nama User</th>
             <th>Tanggal Pengembalian</th>
             <th>Denda</th>
-            <th>Actions</th>
+            <th class="end">Actions</th>
          </tr>
       </thead>
       <tbody>
@@ -88,13 +88,13 @@ if (isset($_GET['update'])) {
             while($row = mysqli_fetch_assoc($select_pengembalian)){
          ?>
          <tr>
-            <td><?php echo $row['id_pengembalian']; ?></td>
+            <td class="kanan"><?php echo $row['id_pengembalian']; ?></td>
             <td><?php echo $row['judul']; ?></td>
             <td><?php echo $row['nama']; ?></td>
-            <td><?php echo $row['tanggal_pengembalian']; ?></td>
-            <td><?php echo $row['denda']; ?></td>
-            <td>
-               <a href="admin_pengembalian.php?update=<?php echo $row['id_pengembalian']; ?>" class="action-btn update-btn">Update</a>
+            <td class="mid"><?php echo $row['tanggal_pengembalian']; ?></td>
+            <td class="kanan">Rp <?php echo $row['denda']; ?>,00</td>
+            <td class="end">
+               <a href="admin_pengembalian.php?update=<?php echo $row['id_pengembalian']; ?>" class="action-btn option-btn">Update</a>
                <a href="admin_pengembalian.php?delete=<?php echo $row['id_pengembalian']; ?>" onclick="return confirm('Delete this entry?');" class="action-btn delete-btn">Delete</a>
             </td>
          </tr>

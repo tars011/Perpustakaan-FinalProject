@@ -78,7 +78,7 @@ if (isset($_GET['update'])) {
             <th>Nama User</th>
             <th>Tanggal Pinjam</th>
             <th>Tanggal Kembali</th>
-            <th>Actions</th>
+            <th class="end">Actions</th>
          </tr>
       </thead>
       <tbody>
@@ -87,13 +87,13 @@ if (isset($_GET['update'])) {
             while($row = mysqli_fetch_assoc($select_peminjaman)){
          ?>
          <tr>
-            <td><?php echo $row['id_peminjaman']; ?></td>
+            <td class="kanan"><?php echo $row['id_peminjaman']; ?></td>
             <td><?php echo $row['judul']; ?></td>
             <td><?php echo $row['nama']; ?></td>
-            <td><?php echo $row['tanggal_pinjam']; ?></td>
-            <td><?php echo $row['tanggal_kembali']; ?></td>
-            <td>
-               <a href="admin_peminjaman.php?update=<?php echo $row['id_peminjaman']; ?>" class="action-btn update-btn">Update</a>
+            <td class="mid"><?php echo $row['tanggal_pinjam']; ?></td>
+            <td class="mid"><?php echo $row['tanggal_kembali']; ?></td>
+            <td class="end">
+               <a href="admin_peminjaman.php?update=<?php echo $row['id_peminjaman']; ?>" class="action-btn option-btn">Update</a>
                <a href="admin_peminjaman.php?delete=<?php echo $row['id_peminjaman']; ?>" onclick="return confirm('Delete this entry?');" class="action-btn delete-btn">Delete</a>
             </td>
          </tr>
@@ -113,6 +113,8 @@ if (isset($_GET['update'])) {
             <p> Tanggal Pinjam: <input type="date" name="tanggal_pinjam" value="<?php echo $peminjaman_data['tanggal_pinjam']; ?>" required> </p>
             <p> Tanggal Kembali: <input type="date" name="tanggal_kembali" value="<?php echo $peminjaman_data['tanggal_kembali']; ?>" required> </p>
             <input type="submit" name="update_peminjaman" value="Update Peminjaman" class="btn">
+            <a id="close-update" class="delete-btn" onclick="window.location.href='admin_user.php';">Cancel</a>
+            <script>window.location.href='#update-user';</script>
          </form>
       </div>
    <?php } ?>
