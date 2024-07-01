@@ -1,4 +1,27 @@
 <?php
+print_r($_SESSION); print_r($_COOKIE);  // to check cookie and session
+
+//cek cookie
+if ( !isset($_SESSION['username']) && !isset($_SESSION['name']) && !isset($_SESSION['email']) ) {
+    if( isset($_COOKIE['login']) ) {
+        if ( $_COOKIE['login'] == 'true' ) {
+            $stmt = $conn->prepare("SELECT username, nama, email FROM user WHERE id_user = ?");
+            $stmt->bind_param("s", $_COOKIE['id_user'],);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+
+            $_SESSION['login'] = true;
+            $_SESSION['id_user'] = $_COOKIE['id_user'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['name'] = $row['nama'];
+            $_SESSION['email'] = $row['email'];
+        } else {
+            header("Location: login.php?section=signin");
+        }
+    }
+}
+
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -18,8 +41,8 @@ if(isset($message)){
       <a href="admin_index.php" class="logo">Admin<span>Panel</span></a>
 
       <nav class="navbar">
-         <a href="admin_index.php">Home</a>
-         <a href="admin_buku.php">Daftar Buku</a>
+         <a href="admin_index.php">Dashboard</a>
+         <a href="admin_buku.php">Buku</a>
          <a href="admin_user.php">User</a>
          <a href="admin_peminjaman.php">Peminjaman</a>
          <a href="admin_pengembalian.php">Pengembalian</a>
@@ -31,10 +54,13 @@ if(isset($message)){
       </div>
 
       <div class="account-box">
-         <p>username : <span><?php echo $_SESSION['username']; ?></span></p>
-         <p>email : <span><?php echo $_SESSION['email']; ?></span></p>
-         <a href="logout.php" class="delete-btn">logout</a>
-         <div>new <a href="login.php">login</a> | <a href="register.php">register</a></div>
+         <?php
+         $nama = $_SESSION['name'];
+         $fnama = ucwords(strtolower($nama));
+         ?>
+         <p><b>Selamat Datang, <span><?php echo $fnama; ?></span> (<span><?php echo $_SESSION['username']; ?>)</b></p>
+         <p>Email : <span><?php echo $_SESSION['email']; ?></span></p>
+         <a href="logout.php" class="delete-btn"><span>logout</span></a>
       </div>
 
    </div>
