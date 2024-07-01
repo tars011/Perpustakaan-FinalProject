@@ -104,7 +104,7 @@ section{
 .delete-btn,
 .white-btn{
    display: inline-block;
-   margin-top: 1rem;
+   /* margin-top: 1rem; */
    padding:1rem 3rem;
    cursor: pointer;
    color:var(--white);
@@ -144,6 +144,7 @@ section{
    }
 }
 
+/* HEADER - NAVBAR - START */
 .header{
    position: sticky;
    top:0; left:0; right:0;
@@ -172,7 +173,7 @@ section{
    color:var(--purple);
 }
 
-.navbar{
+.header .flex .navbar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,6 +186,7 @@ section{
 
 .header .flex .navbar a:hover{
    color:var(--purple);
+   text-decoration: underline;
 }
 
 .header .flex .icons{
@@ -205,27 +207,30 @@ section{
 
 .header .flex .account-box{
    position: absolute;
-   top:120%; right:2rem;
-   width: 30rem;
-   box-shadow: var(--box-shadow);
-   border-radius: .5rem;
-   padding:2rem;
-   text-align: center;
-   border-radius: .5rem;
-   border:var(--border);
+   top:120%; right:0;
    background-color: var(--white);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   border:var(--border);
+   padding:2rem 2.5rem;
+   text-align: left;
+   width: fit-content;
    display: none;
    animation:fadeIn .2s linear;
+   gap: 2rem;
+   outline: 2px solid #c9d6ff;
 }
 
 .header .flex .account-box.active{
-   display: inline-block;
+   /* display: inline-block; */
+   display: flex;
+   flex-direction: column;
 }
 
 .header .flex .account-box p{
+   text-align: left;
    font-size: 2rem;
    color:var(--light-color);
-   margin-bottom: 1.5rem;
 }
 
 .header .flex .account-box p span{
@@ -233,7 +238,12 @@ section{
 }
 
 .header .flex .account-box .delete-btn{
-   margin-top: 0;
+   width: fit-content;
+   font-size: 1.4rem;
+   display: inline-block;
+   padding: 0.5rem 1.5rem;
+   border: none;
+   border-radius: .5rem;
 }
 
 .header .flex .account-box div{
