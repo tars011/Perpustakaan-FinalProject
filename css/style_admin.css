@@ -137,6 +137,11 @@ section{
    color:var(--black);
 }
 
+.separator {
+   border-top: 1px solid #8e44ad;
+   margin: 1rem 0;
+}
+
 @keyframes fadeIn {
    0%{
       transform: translateY(1rem);
@@ -173,11 +178,6 @@ section{
    color:var(--purple);
 }
 
-/* .header .flex .navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
@@ -332,7 +332,7 @@ section{
 
 .show-products .box-container {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
    justify-content: center;
    gap: 1.5rem;
    max-width: 1200px;
@@ -341,66 +341,109 @@ section{
 
 .show-products .box {
    display: flex;
-   flex-direction: row;
-   padding: 1rem 1rem 2rem;
+   flex-direction: column;
+   padding: 1rem;
    border-radius: .5rem;
    border: var(--border);
    box-shadow: var(--box-shadow);
    background-color: var(--white);
 }
 
-.show-products .left-column {
-   width: 50%;
+.show-products .box .baris1 {
    display: flex;
-   flex-direction: column;
-   align-items: left;
+   flex-direction: row;
+   margin-bottom: 1rem;
+   gap: 1rem;
+}
+
+.show-products .left-column {
+   width: 40%;
    text-align: center;
 }
 
 .show-products .left-column img {
    width: 100%;
-   max-height: 45rem;
-   margin-bottom: 1rem;
+   max-height: 33rem;
+   object-fit: cover;
+   display: block;
+   border: 2px solid #8e44ad;
 }
 
-.show-products .left-column .info {
+.show-products .right-column {
+   width: 60%;
+   padding: .5rem;
+   text-align: center;
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   border: 1px solid #8e44ad;
+}
+
+.show-products .name {
+   font-size: 2.5rem;
+   font-weight: bold;
+   color: var(--black);
+   margin: .5rem 2rem 0;
+   padding: .5rem 0;
+}
+
+.show-products .description {
    text-align: left;
+   font-size: 1.6rem;
+   color: var(--black);
+   margin: .5rem;
 }
 
-.show-products .box .name,
+.show-products .box .baris2 {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   border: 1px solid #8e44ad;
+}
+
+.show-products .info {
+   width: 70%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: left;
+   padding-left: .5rem;
+}
+
+.show-products .info span {
+   font-weight: bold;
+}
+
+.show-products .actions {
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: .5rem;
+}
+
 .show-products .box .author,
 .show-products .box .publisher,
 .show-products .box .year,
 .show-products .box .stock {
+   width: fit-content;
    padding: 0.5rem 0;
    font-size: 1.6rem;
    color: var(--black);
 }
 
-.show-products .right-column {
-   width: 50%;
-   flex-grow: 1;
-   padding-left: 2rem;
-}
-
-.show-products .box .description {
+.show-products .option-btn,
+.show-products .delete-btn {
+   border-radius: 0;
    font-size: 1.6rem;
-   color: var(--black);
+   text-align: center;
+   min-width: 12rem;
+   margin: 0 auto;
+   padding: .5rem;
 }
 
-.show-products .box .actions {
-   display: flex;
-   flex-direction: column;
-   margin-top: 1rem;
-}
-
-.show-products .box .option-btn,
-.show-products .box .delete-btn {
-   margin-top: 0.5rem;
-   padding: 0.5rem 1rem;
-   font-size: 1rem;
-}
-
+/* Edit Buku - START */
 .edit-product-form{
    min-height: 100vh;
    background-color: rgba(0,0,0,.7);
@@ -416,7 +459,7 @@ section{
 }
 
 .edit-product-form form{
-   width: 50rem;
+   width: 70rem;
    padding:2rem;
    text-align: center;
    border-radius: .5rem;
@@ -438,6 +481,7 @@ section{
    color:var(--black);
    width: 100%;
 }
+/* Edit Buku - END */
 
 .orders .box-container{
    display: grid;

@@ -92,13 +92,7 @@ if (isset($_POST['update_book'])) {
     <!-- Custom admin CSS file link  -->
     <link rel="stylesheet" href="css/style_admin.css">
     <link rel="icon" type="image/png" href="images/books.png">
-    <style>
-        .edit-product-form {
-            padding-top: 30vh;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -127,40 +121,46 @@ if (isset($_POST['update_book'])) {
     <!-- Show books section  -->
 
     <section class="show-products">
-        <div class="box-container">
-        <?php
-        $select_books = mysqli_query($conn, "SELECT * FROM `buku`") or die('Query failed');
-        if (mysqli_num_rows($select_books) > 0) {
-            while ($fetch_books = mysqli_fetch_assoc($select_books)) {
-        ?>
-            <div class="box">
+    <div class="box-container">
+    <?php
+    $select_books = mysqli_query($conn, "SELECT * FROM `buku`") or die('Query failed');
+    if (mysqli_num_rows($select_books) > 0) {
+        while ($fetch_books = mysqli_fetch_assoc($select_books)) {
+    ?>
+        <div class="box">
+            <div class="baris1">
                 <div class="left-column">
                     <img src="uploaded_img/<?php echo $fetch_books['foto']; ?>" alt="">
-                    <div class="info">
-                        <div class="name">Judul: <?php echo $fetch_books['judul']; ?></div>
-                        <div class="author">Penulis: <?php echo $fetch_books['penulis']; ?></div>
-                        <div class="publisher">Penerbit: <?php echo $fetch_books['penerbit']; ?></div>
-                        <div class="year">Terbit: <?php echo $fetch_books['tahunterbit']; ?></div>
-                        <div class="stock">Stok: <?php echo $fetch_books['stok']; ?></div>
-                    </div>
-                    <div class="actions">
-                        <a href="admin_buku.php?update=<?php echo $fetch_books['id_buku']; ?>" class="option-btn">Update</a>
-                        <a href="admin_buku.php?delete=<?php echo $fetch_books['id_buku']; ?>" class="delete-btn" onclick="return confirm('Delete this book?');">Delete</a>
-                    </div>
                 </div>
                 <div class="right-column">
-                    <div class="description"><?php echo $fetch_books['keterangan']; ?></div>
+                    <div class="name"><?php echo $fetch_books['judul']; ?></div>
+                    <div class="separator"></div>
+                    <div class="description">
+                        <?php echo $fetch_books['keterangan']; ?>
+                    </div>
                 </div>
-                    
             </div>
-        <?php
-            }
-        } else {
-            echo '<p class="empty">No books added yet!</p>';
+            <div class="baris2">
+                <div class="info">
+                    <div class="author"><span>Penulis:</span> <?php echo $fetch_books['penulis']; ?></div>
+                    <div class="publisher"><span>Penerbit:</span> <?php echo $fetch_books['penerbit']; ?></div>
+                    <div class="year"><span>Terbit:</span> <?php echo $fetch_books['tahunterbit']; ?></div>
+                    <div class="stock"><span>Stok:</span> <?php echo $fetch_books['stok']; ?></div>
+                </div>
+                <div class="actions">
+                    <a href="admin_buku.php?update=<?php echo $fetch_books['id_buku']; ?>" class="option-btn">Update</a>
+                    <a href="admin_buku.php?delete=<?php echo $fetch_books['id_buku']; ?>" class="delete-btn" onclick="return confirm('Delete this book?');">Delete</a>
+                </div>
+            </div>      
+        </div>
+    <?php
         }
-        ?>
+    } else {
+        echo '<p class="empty">No books added yet!</p>';
+    }
+    ?>
     </div>
-    </section>
+</section>
 
     <section class="edit-product-form">
         <?php
@@ -170,20 +170,20 @@ if (isset($_POST['update_book'])) {
             if (mysqli_num_rows($update_query) > 0) {
                 while ($fetch_update = mysqli_fetch_assoc($update_query)) {
         ?>
-                    <form action="admin_buku.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="update_b_id" value="<?php echo $fetch_update['id_buku']; ?>">
-                        <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['foto']; ?>">
-                        <img src="uploaded_img/<?php echo $fetch_update['foto']; ?>" alt="">
-                        <input type="text" name="update_judul" value="<?php echo $fetch_update['judul']; ?>" class="box" required placeholder="Enter book title">
-                        <input type="text" name="update_penulis" value="<?php echo $fetch_update['penulis']; ?>" class="box" required placeholder="Enter author name">
-                        <input type="text" name="update_penerbit" value="<?php echo $fetch_update['penerbit']; ?>" class="box" required placeholder="Enter publisher name">
-                        <input type="date" name="update_tahunterbit" value="<?php echo $fetch_update['tahunterbit']; ?>" class="box" required placeholder="Enter year of publication">
-                        <input type="number" name="update_stok" value="<?php echo $fetch_update['stok']; ?>" min="0" class="box" required placeholder="Enter stock quantity">
-                        <textarea name="update_keterangan" class="box" required placeholder="Enter description"><?php echo $fetch_update['keterangan']; ?></textarea>
-                        <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-                        <input type="submit" value="Update" name="update_book" class="btn">
-                        <input type="button" value="Cancel" id="close-update" class="option-btn" onclick="window.location.href='admin_buku.php';">
-                    </form>
+        <form action="admin_buku.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="update_b_id" value="<?php echo $fetch_update['id_buku']; ?>">
+            <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['foto']; ?>">
+            <!-- <img src="uploaded_img/<?php echo $fetch_update['foto']; ?>" alt=""> -->
+            <input type="text" name="update_judul" value="<?php echo $fetch_update['judul']; ?>" class="box" required placeholder="Enter book title">
+            <input type="text" name="update_penulis" value="<?php echo $fetch_update['penulis']; ?>" class="box" required placeholder="Enter author name">
+            <input type="text" name="update_penerbit" value="<?php echo $fetch_update['penerbit']; ?>" class="box" required placeholder="Enter publisher name">
+            <input type="date" name="update_tahunterbit" value="<?php echo $fetch_update['tahunterbit']; ?>" class="box" required placeholder="Enter year of publication">
+            <input type="number" name="update_stok" value="<?php echo $fetch_update['stok']; ?>" min="0" class="box" required placeholder="Enter stock quantity">
+            <textarea rows="8" name="update_keterangan" class="box" required placeholder="Enter description" style="resize: none;" ><?php echo $fetch_update['keterangan']; ?></textarea>
+            <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
+            <input type="submit" value="Update" name="update_book" class="btn">
+            <input type="button" value="Cancel" id="close-update" class="option-btn" onclick="window.location.href='admin_buku.php';">
+        </form>
         <?php
                 }
             }
