@@ -107,19 +107,22 @@ if (isset($_GET['update'])) {
    </div>
 
    <?php if (isset($pengembalian_data)) { ?>
-      <div class="update-form-container">
-         <form action="admin_pengembalian.php" method="post" class="update-form">
-            <input type="hidden" name="id_pengembalian" value="<?php echo $pengembalian_data['id_pengembalian']; ?>">
-            <p> ID Buku: <input type="text" name="id_buku" value="<?php echo $pengembalian_data['id_buku']; ?>" required> </p>
-            <p> ID User: <input type="text" name="id_user" value="<?php echo $pengembalian_data['id_user']; ?>" required> </p>
-            <p> Tanggal Pengembalian: <input type="date" name="tanggal_pengembalian" value="<?php echo $pengembalian_data['tanggal_pengembalian']; ?>" required> </p>
-            <p> Denda: <input type="number" name="denda" value="<?php echo $pengembalian_data['denda']; ?>" required> </p>
-            <input type="submit" name="update_pengembalian" value="Update Pengembalian" class="btn">
-         </form>
-      </div>
+      <form action="admin_pengembalian.php" method="post" class="update-form" id="update-pengembalian">
+         <h3>Update:</h3>
+         <input type="hidden" name="id_pengembalian" value="<?php echo $pengembalian_data['id_pengembalian']; ?>">
+         <p> ID Buku: <input type="text" name="id_buku" value="<?php echo $pengembalian_data['id_buku']; ?>" readonly> </p>
+         <p> ID User: <input type="text" name="id_user" value="<?php echo $pengembalian_data['id_user']; ?>" readonly> </p>
+         <p> Tanggal Pengembalian: <input type="date" name="tanggal_pengembalian" value="<?php echo $pengembalian_data['tanggal_pengembalian']; ?>" readonly> </p>
+         <p> Denda: <input type="number" name="denda" value="<?php echo $pengembalian_data['denda']; ?>" readonly> </p>
+         <a name="update_pengembalian" class="option-btn btn-disabled">Update</a>
+         <a id="close-update" class="delete-btn" onclick="window.location.href='admin_pengembalian.php';">Cancel</a>
+         <script>window.location.href='#update-pengembalian';</script>
+      </form>
    <?php } ?>
 
 </section>
+
+<?php include 'admin_footer.php'; ?>
 
 <!-- Custom admin JS file link -->
 <script src="js/admin_script.js"></script>

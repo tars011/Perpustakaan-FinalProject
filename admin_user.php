@@ -104,6 +104,8 @@ if (isset($_GET['update'])) {
    <?php } ?>
 </section>
 
+<?php include 'admin_footer.php'; ?>
+
 <!-- Custom admin JS file link -->
 <script src="js/admin_script.js"></script>
 

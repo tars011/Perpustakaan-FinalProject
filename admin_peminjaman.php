@@ -69,7 +69,7 @@ if (isset($_GET['update'])) {
 <section class="admin-section">
 
    <h1 class="title">Peminjaman</h1>
-<div class="container_table">
+   <div class="container_table">
    <table class="admin-table">
       <thead>
          <tr>
@@ -104,22 +104,24 @@ if (isset($_GET['update'])) {
    </table>
    </div>
 
-   <?php if (isset($peminjaman_data)) { ?>
-      <div class="update-form-container">
-         <form action="admin_peminjaman.php" method="post" class="update-form">
-            <input type="hidden" name="id_peminjaman" value="<?php echo $peminjaman_data['id_peminjaman']; ?>">
-            <p> ID Buku: <input type="text" name="id_buku" value="<?php echo $peminjaman_data['id_buku']; ?>" required> </p>
-            <p> ID User: <input type="text" name="id_user" value="<?php echo $peminjaman_data['id_user']; ?>" required> </p>
-            <p> Tanggal Pinjam: <input type="date" name="tanggal_pinjam" value="<?php echo $peminjaman_data['tanggal_pinjam']; ?>" required> </p>
-            <p> Tanggal Kembali: <input type="date" name="tanggal_kembali" value="<?php echo $peminjaman_data['tanggal_kembali']; ?>" required> </p>
-            <input type="submit" name="update_peminjaman" value="Update Peminjaman" class="btn">
-            <a id="close-update" class="delete-btn" onclick="window.location.href='admin_user.php';">Cancel</a>
-            <script>window.location.href='#update-user';</script>
-         </form>
-      </div>
+   <?php if 
+   (isset($peminjaman_data)) { ?>
+      <form action="admin_peminjaman.php" method="post" class="update-form" id="update-peminjaman">
+         <h3>Update:</h3>
+         <input type="hidden" name="id_peminjaman" value="<?php echo $peminjaman_data['id_peminjaman']; ?>">
+         <p> ID Buku: <input type="text" name="id_buku" value="<?php echo $peminjaman_data['id_buku']; ?>" readonly> </p>
+         <p> ID User: <input type="text" name="id_user" value="<?php echo $peminjaman_data['id_user']; ?>" readonly> </p>
+         <p> Tanggal Pinjam: <input type="date" name="tanggal_pinjam" value="<?php echo $peminjaman_data['tanggal_pinjam']; ?>" readonly> </p>
+         <p> Tanggal Kembali: <input type="date" name="tanggal_kembali" value="<?php echo $peminjaman_data['tanggal_kembali']; ?>" required> </p>
+         <a name="update_peminjaman" class="option-btn">Update</a>
+         <a id="close-update" class="delete-btn" onclick="window.location.href='admin_peminjaman.php';">Cancel</a>
+         <script>window.location.href='#update-peminjaman';</script>
+      </form>
    <?php } ?>
 
 </section>
+
+<?php include 'admin_footer.php'; ?>
 
 <!-- Custom admin JS file link -->
 <script src="js/admin_script.js"></script>

@@ -83,6 +83,8 @@ if( !isset($_SESSION["login"]) ) {
 
 </section>
 
+<?php include 'admin_footer.php'; ?>
+
 <!-- Custom admin JS file link  -->
 <script src="js/admin_script.js"></script>
 
