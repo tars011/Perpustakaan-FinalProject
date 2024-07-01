@@ -163,7 +163,7 @@ section{
 }
  
 .header .flex .logo{
-   width: 12.5rem;
+   width: 14rem;
    font-size: 2.5rem;
    color:var(--black);
 }
@@ -188,7 +188,8 @@ section{
 }
 
 .header .flex .icons{
-   width: 12.5rem;
+   width: 14rem;
+   text-align: right;
 }
 
 .header .flex .icons div{
