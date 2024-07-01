@@ -128,29 +128,38 @@ if (isset($_POST['update_book'])) {
 
     <section class="show-products">
         <div class="box-container">
-            <?php
-            $select_books = mysqli_query($conn, "SELECT * FROM `buku`") or die('Query failed');
-            if (mysqli_num_rows($select_books) > 0) {
-                while ($fetch_books = mysqli_fetch_assoc($select_books)) {
-            ?>
-                    <div class="box">
-                        <img src="uploaded_img/<?php echo $fetch_books['foto']; ?>" alt="">
-                        <div class="name"><?php echo $fetch_books['judul']; ?></div>
-                        <div class="author"><?php echo $fetch_books['penulis']; ?></div>
-                        <div class="publisher"><?php echo $fetch_books['penerbit']; ?></div>
-                        <div class="year"><?php echo $fetch_books['tahunterbit']; ?></div>
-                        <div class="stock">Stock: <?php echo $fetch_books['stok']; ?></div>
-                        <div class="description"><?php echo $fetch_books['keterangan']; ?></div>
+        <?php
+        $select_books = mysqli_query($conn, "SELECT * FROM `buku`") or die('Query failed');
+        if (mysqli_num_rows($select_books) > 0) {
+            while ($fetch_books = mysqli_fetch_assoc($select_books)) {
+        ?>
+            <div class="box">
+                <div class="left-column">
+                    <img src="uploaded_img/<?php echo $fetch_books['foto']; ?>" alt="">
+                    <div class="info">
+                        <div class="name">Judul: <?php echo $fetch_books['judul']; ?></div>
+                        <div class="author">Penulis: <?php echo $fetch_books['penulis']; ?></div>
+                        <div class="publisher">Penerbit: <?php echo $fetch_books['penerbit']; ?></div>
+                        <div class="year">Terbit: <?php echo $fetch_books['tahunterbit']; ?></div>
+                        <div class="stock">Stok: <?php echo $fetch_books['stok']; ?></div>
+                    </div>
+                    <div class="actions">
                         <a href="admin_buku.php?update=<?php echo $fetch_books['id_buku']; ?>" class="option-btn">Update</a>
                         <a href="admin_buku.php?delete=<?php echo $fetch_books['id_buku']; ?>" class="delete-btn" onclick="return confirm('Delete this book?');">Delete</a>
                     </div>
-            <?php
-                }
-            } else {
-                echo '<p class="empty">No books added yet!</p>';
+                </div>
+                <div class="right-column">
+                    <div class="description"><?php echo $fetch_books['keterangan']; ?></div>
+                </div>
+                    
+            </div>
+        <?php
             }
-            ?>
-        </div>
+        } else {
+            echo '<p class="empty">No books added yet!</p>';
+        }
+        ?>
+    </div>
     </section>
 
     <section class="edit-product-form">
