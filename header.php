@@ -60,7 +60,11 @@ if ( !isset($_SESSION['username']) && !isset($_SESSION['name']) && !isset($_SESS
             </div>
                 <?php } else {?>
             <div class="user-box">
-                <p><b>Selamat Datang, <span><?php echo $_SESSION['name']; ?></span> (<span><?php echo $_SESSION['username']; ?>)</b></p>
+                <?php
+                $nama = $_SESSION['name'];
+                $fnama = ucwords(strtolower($nama));
+                ?>
+                <p><b>Selamat Datang, <span><?php echo $fnama; ?></span> (<span><?php echo $_SESSION['username']; ?>)</b></p>
                 <p>Email : <span><?php echo $_SESSION['email']; ?></span></p>
                 <a href="logout.php" class="delete-btn"><span>logout</span></a>
             </div>
