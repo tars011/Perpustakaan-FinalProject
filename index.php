@@ -4,8 +4,8 @@ session_start();
 include 'koneksi.php';
 
 if( isset($_SESSION["login"]) ) {
-    if ($_SESSION['id_user'] === '1') {
-        header("Location: admin-page/admin.php");
+    if ($_SESSION['id_user'] === 1) {
+        header("Location: admin_index.php");
     }
 }
 
