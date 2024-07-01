@@ -173,11 +173,11 @@ section{
    color:var(--purple);
 }
 
-.header .flex .navbar{
+/* .header .flex .navbar{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
