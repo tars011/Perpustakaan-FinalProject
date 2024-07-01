@@ -3,10 +3,11 @@ session_start();
 
 include 'koneksi.php';
 
-// jika belum login maka diarahkan ke halaman login
-if( !isset($_SESSION["login"]) ) {
-    header("Location: login.php");
-    exit;
+// jika bukan admin diarahkan ke halaman user
+if( isset($_SESSION["login"]) ) {
+   if ($_SESSION['id_user'] !== 1) {
+       header("Location: index.php");
+   }
 }
 ?>
 <!DOCTYPE html>
