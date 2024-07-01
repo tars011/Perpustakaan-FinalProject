@@ -334,6 +334,7 @@ section{
    gap: 1.5rem;
    max-width: 1200px;
    margin: 0 auto;
+   transition: box-shadow 0.2s ease;
 }
 
 .show-products .side-btn {
@@ -364,9 +365,13 @@ section{
    flex-direction: column;
    padding: 1rem;
    border-radius: .5rem;
-   border: var(--border);
+   /* border: var(--border); */
    box-shadow: var(--box-shadow);
    background-color: var(--white);
+}
+
+.show-products .box:hover {
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 .show-products .box .baris1 {
@@ -420,6 +425,7 @@ section{
    background-color: var(--light-bg);
    border-radius: .5rem;
    border: 1px solid #8e44ad;
+   height: max-content;
 }
 
 .show-products .info {
@@ -462,6 +468,7 @@ section{
    margin: 0 auto;
    padding: .5rem;
 }
+/* Show Buku - END */
 
 /* Edit Buku - START */
 .edit-product-form{
@@ -827,6 +834,10 @@ p{
    .header .flex .navbar a{
       margin:2rem;
       display: block;
+   }
+
+   .title{
+      font-size: 3.3rem;
    }
 
 }

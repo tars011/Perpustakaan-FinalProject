@@ -109,7 +109,7 @@ if (isset($_POST['update_book'])) {
     </div>
     <div class="box-container">
     <?php
-    $select_books = mysqli_query($conn, "SELECT * FROM `buku`") or die('Query failed');
+    $select_books = mysqli_query($conn, "SELECT * FROM `buku`ORDER BY id_buku DESC") or die('Query failed');
     if (mysqli_num_rows($select_books) > 0) {
         while ($fetch_books = mysqli_fetch_assoc($select_books)) {
     ?>
