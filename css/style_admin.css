@@ -614,7 +614,7 @@ section{
 }
 
 .container_table .admin-table th{
-   padding: 1rem 0;
+   padding: 1rem .5rem;
    text-align: center;
    background-color: #A9A9A9;
    border-bottom: 1px solid #ddd;
