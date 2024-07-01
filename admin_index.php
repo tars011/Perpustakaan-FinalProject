@@ -9,6 +9,13 @@ if( isset($_SESSION["login"]) ) {
        header("Location: index.php");
    }
 }
+
+// jika belum login maka diarahkan ke halaman login
+if( !isset($_SESSION["login"]) ) {
+   header("Location: login.php");
+   exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
