@@ -79,6 +79,7 @@ if (isset($_POST['update_book'])) {
 
     <!-- Custom admin CSS file link  -->
     <link rel="stylesheet" href="css/style_admin.css">
+    <link rel="icon" type="image/png" href="images/books.png">
     <style>
         .edit-product-form {
             padding-top: 30vh;

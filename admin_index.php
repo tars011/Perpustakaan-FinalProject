@@ -22,6 +22,7 @@ if( !isset($_SESSION["login"]) ) {
 
    <!-- Custom admin CSS file link  -->
    <link rel="stylesheet" href="css/style_admin.css">
+   <link rel="icon" type="image/png" href="images/books.png">
 
 </head>
 <body>
