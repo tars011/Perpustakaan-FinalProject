@@ -37,7 +37,7 @@ if(isset($_COOKIE['message'])){
  }
 ?>
 
-<header class="header">
+<header class="header"  id="top">
     <div class="header-2">
         <div class="flex">
             <a href="index.php" class="logo">Library</a>
