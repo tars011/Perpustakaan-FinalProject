@@ -304,8 +304,8 @@ section{
 
 .dashboard .box-container .box:hover{
    border-radius: 0;
-   background-color: rgba(51, 51, 51, 0.1);
-   box-shadow: var(--box-shadow);
+   background-color: rgba(142, 68, 173,0.01);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 
 }
 
@@ -316,20 +316,21 @@ section{
 }
 
 .dashboard .box-container .box p{
-   margin-top: 1.5rem;
-   padding:1.5rem;
-   cursor: default;
+   margin-bottom: 1rem;
+   padding: 1rem;
    color:var(--purple);
+   font-weight: bold;
    font-size: 2rem;
-   border-radius: .5rem;
-   border:var(--border);
-   transition: all 0.3s ease;
+   border-radius: 0;
+   border: 1px solid #ccc;
 }
 
-.dashboard .box-container .box p:hover{
-   background-color: rgba(51, 51, 51, 0.1);
+.dashboard .box-container .baris1 .btn{
+   border-radius: 0;
+   border: 1px solid #c9d6ff;
+   margin: 1rem auto 0;
+   width: 100%;
 }
-
 .dashboard .box-container .baris2{
    max-width: 1200px;
    display: grid;
@@ -340,10 +341,6 @@ section{
    text-align: center;
 }
 
-.dashboard .box-container .baris2 .btn{
-   border-radius: 0;
-   border: 1px solid #c9d6ff;
-}
 /* Dashboard - END */
 
 
