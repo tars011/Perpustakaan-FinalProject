@@ -113,7 +113,7 @@ if (isset($_GET['update'])) {
          <p> ID User: <input type="text" name="id_user" value="<?php echo $peminjaman_data['id_user']; ?>" readonly> </p>
          <p> Tanggal Pinjam: <input type="date" name="tanggal_pinjam" value="<?php echo $peminjaman_data['tanggal_pinjam']; ?>" readonly> </p>
          <p> Tanggal Kembali: <input type="date" name="tanggal_kembali" value="<?php echo $peminjaman_data['tanggal_kembali']; ?>" required> </p>
-         <a name="update_peminjaman" class="option-btn">Update</a>
+         <button type="submit" name="update_peminjaman" class="option-btn">Update</button>
          <a id="close-update" class="delete-btn" onclick="window.location.href='admin_peminjaman.php';">Cancel</a>
          <script>window.location.href='#update-peminjaman';</script>
       </form>

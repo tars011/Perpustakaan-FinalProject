@@ -114,7 +114,7 @@ if (isset($_GET['update'])) {
          <p> ID User: <input type="text" name="id_user" value="<?php echo $pengembalian_data['id_user']; ?>" readonly> </p>
          <p> Tanggal Pengembalian: <input type="date" name="tanggal_pengembalian" value="<?php echo $pengembalian_data['tanggal_pengembalian']; ?>" readonly> </p>
          <p> Denda: <input type="number" name="denda" value="<?php echo $pengembalian_data['denda']; ?>" readonly> </p>
-         <a name="update_pengembalian" class="option-btn btn-disabled">Update</a>
+         <button type="submit" name="update_pengembalian" class="option-btn btn-disabled">Update</button>
          <a id="close-update" class="delete-btn" onclick="window.location.href='admin_pengembalian.php';">Cancel</a>
          <script>window.location.href='#update-pengembalian';</script>
       </form>
