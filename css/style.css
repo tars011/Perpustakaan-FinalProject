@@ -49,6 +49,10 @@ section{
    padding:3rem 2rem;
 }
 
+body{
+   background-color: var(--light-bg);
+}
+
 .empty{
    padding:1.5rem;
    text-align: center;
