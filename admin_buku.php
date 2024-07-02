@@ -122,7 +122,7 @@ if (isset($_POST['update_book'])) {
                     <div class="name"><?php echo $fetch_books['judul']; ?></div>
                     <div class="separator"></div>
                     <div class="description">
-                        <?php echo $fetch_books['keterangan']; ?>
+                        <?php echo nl2br($fetch_books['keterangan']); ?>
                     </div>
                 </div>
             </div>

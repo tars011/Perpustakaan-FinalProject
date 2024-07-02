@@ -72,7 +72,7 @@ if( isset($_SESSION["login"]) ) {
                                 <p class="desc_detail"><span>Judul:</span> <?php echo $data['judul']; ?></p>
                                 <p class="desc_detail"><span>Penulis:</span> <?php echo $data['penulis']; ?></p>
                                 <p class="desc_detail"><span>Penjelasan Singkat:</span></p>
-                                <p class="desc_detail"><?php echo $data['keterangan']; ?></p>
+                                <p class="desc_detail"><?php echo nl2br($data['keterangan']); ?></p>
                             </div>
                         </div>
                     </div>
