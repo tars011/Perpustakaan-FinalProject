@@ -312,12 +312,13 @@ section{
 .dashboard .box-container .box h3{
    font-size: 5rem;
    color:var(--black); 
+   cursor: default;
 }
 
 .dashboard .box-container .box p{
    margin-top: 1.5rem;
    padding:1.5rem;
-   background-color: var(--light-bg);
+   cursor: default;
    color:var(--purple);
    font-size: 2rem;
    border-radius: .5rem;
