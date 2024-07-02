@@ -30,10 +30,12 @@ if (isset($_POST['submit'])) {
         };
     
         // Redirect atau pesan sukses
+        setcookie('message', json_encode(['The book has been successfully borrowed!']), time() + 10, "/");
+
         header('Location: books.php');
         exit;
     } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+        setcookie('message', json_encode(['Failed to borrow the book!']), time() + 10, "/");
     }
 }
 ?>

@@ -36,10 +36,12 @@ if (mysqli_query($conn, $query)) {
     }
 
     // Redirect atau pesan sukses
+    setcookie('message', json_encode(['The book has been successfully returned!']), time() + 10, "/");
+
     header('Location: loans.php');
     exit;
 } else {
-    echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    setcookie('message', json_encode(['Failed to return the book!']), time() + 10, "/");
 }
 
 ?>

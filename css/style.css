@@ -45,12 +45,20 @@ html{
    overflow-x: hidden;
 }
 
+body{
+   background-color: var(--light-bg);
+}
+
 section{
    padding:3rem 2rem;
 }
 
-body{
-   background-color: var(--light-bg);
+.title{
+   text-align: center;
+   margin-bottom: 2rem;
+   text-transform: uppercase;
+   color:var(--black);
+   font-size: 4rem;
 }
 
 .empty{
@@ -67,7 +75,7 @@ body{
    top:0;
    margin:0 auto;
    max-width: 1200px;
-   background-color: var(--white);
+   background-color: var(--light-bg);
    padding:2rem;
    display: flex;
    align-items: center;
@@ -77,7 +85,7 @@ body{
 }
 
 .message span{
-   font-size: 2rem;
+   font-size: 2.5rem;
    color:var(--black);
 }
 
@@ -89,14 +97,6 @@ body{
 
 .message i:hover{
    transform: rotate(90deg);
-}
-
-.title{
-   text-align: center;
-   margin-bottom: 2rem;
-   text-transform: uppercase;
-   color:var(--black);
-   font-size: 4rem;
 }
 
 .btn,
@@ -193,65 +193,19 @@ body{
    }
 }
 
-.form-container{
-   min-height: 100vh;
-   background-color: var(--light-bg);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding:2rem;
-}
-
-.form-container form{
-   padding:2rem;
-   width: 50rem;
-   border-radius: .5rem;
-   box-shadow: var(--box-shadow);
-   border:var(--border);
-   background-color: var(--white);
-   text-align: center;
-}
-
-.form-container form h3{
-   font-size: 3rem;
-   margin-bottom: 1rem;
-   text-transform: uppercase;
-   color:var(--black);
-}
-
-.form-container form .box{
-   width: 100%;
-   border-radius: .5rem;
-   background-color: var(--light-bg);
-   padding:1.2rem 1.4rem;
-   font-size: 1.8rem;
-   color:var(--black);
-   border:var(--border);
-   margin:1rem 0;
-}
-
-.form-container form p{
-   padding-top: 1.5rem;
-   font-size: 2rem;
-   color:var(--black);
-}
-
-.form-container form p a{
-   color:var(--purple);
-}
-
-.form-container form p a:hover{
-   text-decoration: underline;
-}
-
 /* HEADER - NAVBAR - START */
+.header{
+   position: sticky;
+   top:0; left:0; right:0;
+   z-index: 1000;
+}
 .header .header-2{
    background-color: var(--white);
    box-shadow: var(--box-shadow);
 }
 
 .header .header-2.active{
-   position: fixed;
+   position: sticky;
    top:0; left:0; right:0;
    z-index: 1000;
 }
