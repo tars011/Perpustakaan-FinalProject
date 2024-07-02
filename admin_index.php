@@ -44,6 +44,15 @@ if( !isset($_SESSION["login"]) ) {
    <div class="box-container">
       <div class="baris1">
          <div class="box">
+            <p>Total Buku</p>
+            <?php
+               $select_buku = mysqli_query($conn, "SELECT COUNT(*) AS total_buku FROM `buku`") or die('Query failed');
+               $fetch_buku = mysqli_fetch_assoc($select_buku);
+            ?>
+            <h3><?php echo $fetch_buku['total_buku']; ?></h3>
+            <a href="admin_buku.php" class="btn">Buku</a>
+         </div>
+         <div class="box">
             <p>Total Users</p>
             <?php
                $select_users = mysqli_query($conn, "SELECT COUNT(*) AS total_users FROM `user`") or die('Query failed');
@@ -72,22 +81,10 @@ if( !isset($_SESSION["login"]) ) {
             <h3><?php echo $fetch_late_peminjaman['total_late']; ?></h3>
             <a href="admin_pengembalian.php" class="btn">Pengembalian</a>
          </div>
-   
-         <div class="box">
-            <p>Total Buku</p>
-            <?php
-               $select_buku = mysqli_query($conn, "SELECT COUNT(*) AS total_buku FROM `buku`") or die('Query failed');
-               $fetch_buku = mysqli_fetch_assoc($select_buku);
-            ?>
-            <h3><?php echo $fetch_buku['total_buku']; ?></h3>
-            <a href="admin_buku.php" class="btn">Buku</a>
-         </div>
       </div>
       <div class="baris2">
          
       </div>
-
-      
    </div>
 
 </section>
