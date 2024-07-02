@@ -85,7 +85,7 @@ section{
 }
 
 .message span{
-   font-size: 2rem;
+   font-size: 2.5rem;
    color:var(--black);
 }
 
@@ -398,6 +398,7 @@ section{
 
 .show-products .left-column img {
    width: 100%;
+   min-height: 33rem;
    max-height: 33rem;
    object-fit: cover;
    display: block;
@@ -406,6 +407,7 @@ section{
 
 .show-products .right-column {
    width: 60%;
+   min-height: 33rem;
    padding: .5rem;
    text-align: center;
    background-color: var(--light-bg);

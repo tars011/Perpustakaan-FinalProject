@@ -1,5 +1,5 @@
 <?php
-print_r($_SESSION); print_r($_COOKIE);  // to check cookie and session
+// print_r($_SESSION); print_r($_COOKIE);  // to check cookie and session
 
 //cek cookie
 if ( !isset($_SESSION['username']) && !isset($_SESSION['name']) && !isset($_SESSION['email']) ) {
@@ -22,15 +22,18 @@ if ( !isset($_SESSION['username']) && !isset($_SESSION['name']) && !isset($_SESS
     }
 }
 
-if(isset($message)){
-   foreach($message as $message){
-      echo '
-      <div class="message">
-         <span>'.$message.'</span>
-         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-      </div>
-      ';
+if(isset($_COOKIE['message'])){
+   $messages = json_decode($_COOKIE['message'], true);
+   foreach($messages as $message){
+       echo '
+       <div class="message">
+           <span>'.$message.'</span>
+           <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+       </div>
+       ';
    }
+   // Delete the message cookie after displaying
+   setcookie("message", "", time() - 3600, "/");
 }
 ?>
 

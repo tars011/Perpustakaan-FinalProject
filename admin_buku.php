@@ -31,9 +31,9 @@ if (isset($_POST['add_book'])) {
 
     if ($add_book_query) {
         move_uploaded_file($foto_tmp_name, $foto_folder);
-        $message[] = 'Book added successfully!';
+        setcookie('message', json_encode(['Book added successfully!']), time() + 10, "/");
     } else {
-        $message[] = 'Book addition failed!';
+        setcookie('message', json_encode(['Book addition failed!']), time() + 10, "/");
     }
 }
 
@@ -68,9 +68,9 @@ if (isset($_POST['update_book'])) {
     }
 
     if ($update_query) {
-        $message[] = 'Book updated successfully!';
+        setcookie('message', json_encode(['Book updated successfully!']), time() + 10, "/");
     } else {
-        $message[] = 'Book update failed!';
+        setcookie('message', json_encode(['Book update failed!']), time() + 10, "/");
     }
 
     header('location:admin_buku.php');
@@ -158,8 +158,8 @@ if (isset($_POST['update_book'])) {
         <input type="text" name="penerbit" class="box" placeholder="Enter publisher name" required>
         <input type="date" name="tahunterbit" class="box" placeholder="Enter year of publication" required>
         <input type="number" min="0" name="stok" class="box" placeholder="Enter stock quantity" required>
-        <textarea rows="3" name="keterangan" class="box" placeholder="Enter description" required style="resize: none;"></textarea>
-        <input type="file" name="foto" accept="image/jpg, image/jpeg, image/png" class="box" required>
+        <textarea rows="3" name="keterangan" class="box" placeholder="Enter description" style="resize: none;"></textarea>
+        <input type="file" name="foto" accept="image/jpg, image/jpeg, image/png" class="box">
         <input type="submit" value="Add Book" name="add_book" class="btn">
     </form>
 </section>
@@ -184,7 +184,7 @@ if (isset($_POST['update_book'])) {
         <input type="text" name="update_penerbit" value="<?php echo $fetch_update['penerbit']; ?>" class="box" required placeholder="Enter publisher name">
         <input type="date" name="update_tahunterbit" value="<?php echo $fetch_update['tahunterbit']; ?>" class="box" required placeholder="Enter year of publication">
         <input type="number" name="update_stok" value="<?php echo $fetch_update['stok']; ?>" min="0" class="box" required placeholder="Enter stock quantity">
-        <textarea rows="8" name="update_keterangan" class="box" required placeholder="Enter description" style="resize: none;"><?php echo $fetch_update['keterangan']; ?></textarea>
+        <textarea rows="8" name="update_keterangan" class="box" placeholder="Enter description" style="resize: none;"><?php echo $fetch_update['keterangan']; ?></textarea>
         <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
         <input type="submit" value="Update" name="update_book" class="option-btn">
         <input type="button" value="Cancel" id="close-update" class="delete-btn" onclick="window.location.href='admin_buku.php';">
