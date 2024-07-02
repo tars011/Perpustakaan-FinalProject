@@ -269,14 +269,26 @@ section{
 #menu-btn{
    display: none;
 }
+/* HEADER - NAVBAR - END */
 
+/* Dashboard - START */
 .dashboard .box-container{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-content: center;
+   max-width: 1200px;
+   gap:1.5rem;
+   margin:0 auto;
+}
+
+.dashboard .box-container .baris1{
+   max-width: 1200px;
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+   align-items: safe;
    gap:1.5rem;
-   max-width: 1200px;
-   margin:0 auto;
-   align-items: flex-start;
+   justify-content: center;
 }
 
 .dashboard .box-container .box{
@@ -286,6 +298,15 @@ section{
    box-shadow: var(--box-shadow);
    border:var(--border);
    text-align: center;
+   width: 100%;
+   transition: all 0.3s ease;
+}
+
+.dashboard .box-container .box:hover{
+   border-radius: 0;
+   background-color: rgba(51, 51, 51, 0.1);
+   box-shadow: var(--box-shadow);
+
 }
 
 .dashboard .box-container .box h3{
@@ -301,8 +322,28 @@ section{
    font-size: 2rem;
    border-radius: .5rem;
    border:var(--border);
+   transition: all 0.3s ease;
 }
 
+.dashboard .box-container .box p:hover{
+   background-color: rgba(51, 51, 51, 0.1);
+}
+
+.dashboard .box-container .baris2{
+   max-width: 1200px;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+   align-items: safe;
+   gap:1.5rem;
+   justify-content: center;
+   text-align: center;
+}
+
+.dashboard .box-container .baris2 .btn{
+   border-radius: 0;
+   border: 1px solid #c9d6ff;
+}
+/* Dashboard - END */
 
 
 /* Add Buku - START */
@@ -577,8 +618,6 @@ section{
    margin: 0 auto;
 }
 
-
-
 .user .update-form {
    margin: 2rem auto 2rem;
    padding: 2rem;
@@ -612,7 +651,6 @@ section{
    border-radius: .5rem;
 }
 /* User - END */
-
 
 /* Pinjam-Kembali - Start */
 .admin-section {
@@ -756,7 +794,7 @@ section{
 @media (max-width:991px){
 
    html{
-      font-size: 55%;
+      font-size: 60%;
    }
 
 }

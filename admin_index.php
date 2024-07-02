@@ -42,42 +42,50 @@ if( !isset($_SESSION["login"]) ) {
    <h1 class="title">Dashboard</h1>
 
    <div class="box-container">
-
-      <div class="box">
-         <?php
-            $select_users = mysqli_query($conn, "SELECT COUNT(*) AS total_users FROM `user`") or die('Query failed');
-            $fetch_users = mysqli_fetch_assoc($select_users);
-         ?>
-         <h3><?php echo $fetch_users['total_users']; ?></h3>
-         <p>Total Users</p>
+      <div class="baris1">
+         <div class="box">
+            <?php
+               $select_users = mysqli_query($conn, "SELECT COUNT(*) AS total_users FROM `user`") or die('Query failed');
+               $fetch_users = mysqli_fetch_assoc($select_users);
+            ?>
+            <h3><?php echo $fetch_users['total_users']; ?></h3>
+            <p>Total Users</p>
+         </div>
+   
+         <div class="box">
+            <?php
+               $select_peminjaman = mysqli_query($conn, "SELECT COUNT(*) AS total_peminjaman FROM `peminjaman`") or die('Query failed');
+               $fetch_peminjaman = mysqli_fetch_assoc($select_peminjaman);
+            ?>
+            <h3><?php echo $fetch_peminjaman['total_peminjaman']; ?></h3>
+            <p>Total Peminjaman</p>
+         </div>
+   
+         <div class="box">
+            <?php
+               $select_late_peminjaman = mysqli_query($conn, "SELECT COUNT(*) AS total_late FROM `peminjaman` WHERE `tanggal_kembali` < CURDATE()") or die('Query failed');
+               $fetch_late_peminjaman = mysqli_fetch_assoc($select_late_peminjaman);
+            ?>
+            <h3><?php echo $fetch_late_peminjaman['total_late']; ?></h3>
+            <p>Peminjaman Terlambat</p>
+         </div>
+   
+         <div class="box">
+            <?php
+               $select_buku = mysqli_query($conn, "SELECT COUNT(*) AS total_buku FROM `buku`") or die('Query failed');
+               $fetch_buku = mysqli_fetch_assoc($select_buku);
+            ?>
+            <h3><?php echo $fetch_buku['total_buku']; ?></h3>
+            <p>Total Buku</p>
+         </div>
+      </div>
+      <div class="baris2">
+         <a href="admin_user.php" class="btn">User</a>
+         <a href="admin_peminjaman.php" class="btn">Peminjaman</a>
+         <a href="admin_pengembalian.php" class="btn">Pengembalian</a>
+         <a href="admin_buku.php" class="btn">Buku</a>
       </div>
 
-      <div class="box">
-         <?php
-            $select_peminjaman = mysqli_query($conn, "SELECT COUNT(*) AS total_peminjaman FROM `peminjaman`") or die('Query failed');
-            $fetch_peminjaman = mysqli_fetch_assoc($select_peminjaman);
-         ?>
-         <h3><?php echo $fetch_peminjaman['total_peminjaman']; ?></h3>
-         <p>Total Peminjaman</p>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_late_peminjaman = mysqli_query($conn, "SELECT COUNT(*) AS total_late FROM `peminjaman` WHERE `tanggal_kembali` < CURDATE()") or die('Query failed');
-            $fetch_late_peminjaman = mysqli_fetch_assoc($select_late_peminjaman);
-         ?>
-         <h3><?php echo $fetch_late_peminjaman['total_late']; ?></h3>
-         <p>Peminjaman Terlambat</p>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_buku = mysqli_query($conn, "SELECT COUNT(*) AS total_buku FROM `buku`") or die('Query failed');
-            $fetch_buku = mysqli_fetch_assoc($select_buku);
-         ?>
-         <h3><?php echo $fetch_buku['total_buku']; ?></h3>
-         <p>Total Buku</p>
-      </div>
       
    </div>
 
