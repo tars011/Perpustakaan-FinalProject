@@ -35,6 +35,7 @@ if (isset($_POST['add_book'])) {
     } else {
         setcookie('message', json_encode(['Book addition failed!']), time() + 10, "/");
     }
+    header('location:admin_buku.php#top');
 }
 
 if (isset($_GET['delete'])) {
