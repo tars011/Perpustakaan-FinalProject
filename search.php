@@ -10,6 +10,35 @@ if( !isset($_SESSION["login"]) ) {
     exit;
 }
 
+if (isset($_POST['submit'])) {
+    // Ambil data buku yang dipinjam
+    $id_buku = $_POST['id_buku'];
+    $id_user = $_SESSION['id_user']; // Misalnya disimpan dalam session
+    $tanggal_pinjam = date('Y-m-d');
+    $tanggal_kembali = date('Y-m-d', strtotime('+7 days'));
+    
+    // Query untuk memasukkan data peminjaman ke tabel peminjaman
+    $query = "INSERT INTO peminjaman (id_buku, id_user, tanggal_pinjam, tanggal_kembali) 
+              VALUES ('$id_buku', '$id_user', '$tanggal_pinjam', '$tanggal_kembali')";
+        
+    if (mysqli_query($conn, $query)) {
+        // Jika berhasil meminjam, update stok buku (opsional)
+        // Misalnya, mengurangi stok
+        $update_stok_query = "UPDATE buku SET stok = stok - 1 WHERE id_buku = $id_buku";
+        if (!mysqli_query($conn, $update_stok_query)) {
+            echo "Error updating book stock: " . mysqli_error($conn);
+            exit;
+        };
+    
+        // Redirect atau pesan sukses
+        setcookie('message', json_encode(['The book has been successfully borrowed!']), time() + 10, "/");
+
+        header('Location: loans.php');
+        exit;
+    } else {
+        setcookie('message', json_encode(['Failed to borrow the book!']), time() + 10, "/");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,86 +55,47 @@ if( !isset($_SESSION["login"]) ) {
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="images/books.png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
 
 </head>
 <body>
    
 <?php include 'header.php'; ?>
-
-<div class="heading">
-    <h3>search page</h3>
-</div>
-
-<section class="search-form">
-    <form action="" method="post">
-        <input type="text" name="search" placeholder="search books..." class="box">
-        <input type="submit" name="submit" value="search" class="btn">
-    </form>
-</section>
-
-<section class="books" style="padding-top: 0;">
-
-    <div class="box-container">
-        <?php
-        if(isset($_POST['submit'])){
-            $search_item = $_POST['search'];
-            $select_books = mysqli_query($conn, "SELECT * FROM buku WHERE judul LIKE '%{$search_item}%'") or die('query failed');
-            if(mysqli_num_rows($select_books) > 0){
-                while($data = mysqli_fetch_assoc($select_books)){
-        ?>
-        <form action="books.php" method="post" class="box">
-            <img class="image" src="uploaded_img/<?php echo $data['foto']; ?>" alt="">
-            <div class="name"><?php echo $data['judul']; ?></div>
-            <input type="hidden" name="id_buku" value="<?php echo $data['id_buku']; ?>">
-            <div class="details">
-                <div class="info">
-                    <div class="author"><span>Penulis:</span> <?php echo $data['penulis']; ?></div>
-                    <div class="publisher"><span>Penerbit:</span> <?php echo $data['penerbit']; ?></div>
-                    <div class="year"><span>Terbit:</span> <?php echo $data['tahunterbit']; ?></div>
-                </div>
-                <div class="description"><span>Detail:</span>
-                    <button class="desc_title">Klik</button>
-                    <div class="modal-overlay" id="modalOverlay_<?php echo $data['id_buku']; ?>">
-                        <div class="modal">
-                            <span class="close-modal" data-modal-id="modalOverlay_<?php echo $data['id_buku']; ?>">&times;</span>
-                            <div class="modal-content">
-                                <h2>Detail:</h2>
-                                <p class="desc_detail"><span>Judul:</span> <?php echo $data['judul']; ?></p>
-                                <p class="desc_detail"><span>Penulis:</span> <?php echo $data['penulis']; ?></p>
-                                <p class="desc_detail"><span>Penjelasan Singkat:</span></p>
-                                <p class="desc_detail"><?php echo $data['keterangan']; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stock">Stok: 
-                    <?php if ($data['stok'] > 0) {
-                        echo "<span>Tersedia</span>";
-                    } else {
-                        echo "<span class='kosong'>Kosong</span>";
-                    }
-                    ?>
-                </div>
-            </div>
-            <input type="submit" value="Pinjam" name="submit" class="<?php if ($data['stok'] < 1) {echo "clean-btn btn-disabled"; } else {echo "btn"; } ?>" onclick="return confirmSubmit();">
-        </form>
-        <?php
-                }
-            } else {
-                echo '<p class="empty">no result found!</p>';
-            }
-        }else{
-            echo '<p class="empty">search something!</p>';
-        }
-        ?>
+<div class="main-content">
+    <div class="heading">
+        <h3>search page</h3>
     </div>
-</section>
+    
+    <section class="search-form" id="search-form">
+        <form action="" method="post">
+            <input type="text" name="search" id="search" placeholder="search books..." class="box">
+            <input type="submit" name="submit" id="submit" value="search" class="btn">
+        </form>
+    </section>
+    
+    <section class="books" id="container" style="padding-top: 0;">
+    
+        <div class="box-container">
+    
+            <p class="empty">search something!</p>
+    
+        </div>
+    </section>
+
+</div>
 
 
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script src="js/search-ajax.js"></script>
 
 </body>
 </html>

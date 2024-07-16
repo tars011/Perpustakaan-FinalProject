@@ -43,10 +43,23 @@ if(isset($_COOKIE['message'])){
             <a href="index.php" class="logo">Library</a>
 
             <nav class="navbar">
-                <a href="index.php">home</a>
-                <a href="books.php">books</a>
-                <a href="loans.php">orders</a>
-                <a href="about.php">about us</a>
+                <?php
+                $current_page = basename($_SERVER['PHP_SELF']);
+                $nav_links = [
+                    'index.php' => 'home',
+                    'books.php' => 'books',
+                    'search.php' => 'search',
+                    'loans.php' => 'orders',
+                    'about.php' => 'about us'
+                ];
+                foreach ($nav_links as $url => $title) {
+                    if ($current_page == $url) {
+                        echo '<span class="nav-link active">' . $title . '</span>';
+                    } else {
+                        echo '<a href="' . $url . '">' . $title . '</a>';
+                    }
+                }
+                ?>
             </nav>
 
             <div class="icons">

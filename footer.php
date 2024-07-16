@@ -1,7 +1,10 @@
 <section class="footer">
-
+   <?php
+   $current_page = basename($_SERVER['PHP_SELF']);
+   if ($current_page == 'index.php') {
+   ?>
    <div class="box-container">
-
+      
       <div class="box" id="box1">
          <h3>quick links</h3>
          <a href="index.php">Home</a>
@@ -19,6 +22,7 @@
       </div>
 
    </div>
+   <?php } ?>
 
    <p class="credit"> Copyright &copy;    <?php echo date('Y'); ?> | All rights reserved.</p>
 

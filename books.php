@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
                     <div class="year"><span>Terbit:</span> <?php echo $data['tahunterbit']; ?></div>
                 </div>
                 <div class="description"><span>Detail:</span>
-                    <button class="desc_title">Klik</button>
+                    <button type="button" class="desc_title">Klik</button>
                     <div class="modal-overlay" id="modalOverlay_<?php echo $data['id_buku']; ?>">
                         <div class="modal">
                             <span class="close-modal" data-modal-id="modalOverlay_<?php echo $data['id_buku']; ?>">&times;</span>
