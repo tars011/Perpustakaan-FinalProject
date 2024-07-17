@@ -211,7 +211,7 @@ section{
 }
 
 .header .header-2 .flex{
-   padding:2rem;
+   padding: 0 2rem;
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -224,21 +224,25 @@ section{
    width: 18rem;
    font-size: 2.5rem;
    color:var(--purple);
+   padding: 2rem 0;
 }
 
 .header .header-2 .flex .navbar a{
-   margin:0 1rem;
+   padding:1rem 1rem;
    font-size: 2rem;
    color:var(--light-color);
+   border-radius: .5rem;
+   transition: background-color 0.1s ease;
 }
 
 .header .header-2 .flex .navbar a:hover{
    color:var(--purple);
-   text-decoration: underline;
+   /* text-decoration: underline; */
+   background-color: rgba(142, 68, 173, 0.2);
 }
 
 .nav-link {
-   margin:0 1rem;
+   padding:1rem 1rem;
    font-size: 2rem;
    color: #000;
    cursor: default;
@@ -256,6 +260,7 @@ section{
 .header .header-2 .flex .icons{
    text-align: center;
    min-width: 180px;
+   padding: 2rem 0;
 }
 
 .header .header-2 .flex .icons > *{
@@ -263,6 +268,7 @@ section{
    color:var(--black);
    cursor: pointer;
    margin-left: 1.5rem;
+   transition: color 0.1s ease;
 }
 
 .header .header-2 .flex .icons > *:hover{
