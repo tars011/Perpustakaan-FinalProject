@@ -881,7 +881,7 @@ section{
    color:var(--light-color);
    border-top: var(--border);
    border-bottom: var(--border);
-   margin-top: 2.5rem;
+   /* margin-top: 2.5rem; */
    padding-top: 2.5rem;
    padding-bottom: 2.5rem;
 }
