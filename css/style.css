@@ -887,7 +887,30 @@ section{
 }
 /* FOOTER-END */
 
+#myBtn {
+   display: none; /* Hidden by default */
+   position: fixed;
+   bottom: 5rem;
+   right: 3rem;
+   z-index: 2000;
+   border: none;
+   outline: none;
+   background-color: var(--red);
+   color: white;
+   cursor: pointer;
+   padding: 12px 15px 8px;
+   border-radius: 10px;
+   font-size: 2rem;
+   font-family: Tahoma;
+   font-weight: bolder;
+   text-shadow: 2px 2px 2px black;
+   transition: all 0.1s ease;
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.4);
+}
 
+#myBtn:hover {
+   background-color: var(--purple);
+}
 
 /* media queries  */
 

@@ -97,7 +97,7 @@ if (isset($_GET['update'])) {
       <p> Name: <input type="text" name="nama" value="<?php echo $user_data['nama']; ?>" required> </p>
       <p> Email: <input type="email" name="email" value="<?php echo $user_data['email']; ?>" required> </p>
       <p> Phone Number: <input type="text" name="no_telepon" value="<?php echo $user_data['no_telepon']; ?>" required> </p>
-      <a name="update_user" class="option-btn">Update</a>
+      <button name="update_user" class="option-btn">Update</button>
       <a id="close-update" class="delete-btn" onclick="window.location.href='admin_user.php';">Cancel</a>
       <script>window.location.href='#update-user';</script>
    </form>
@@ -105,6 +105,7 @@ if (isset($_GET['update'])) {
 </section>
 
 <?php include 'admin_footer.php'; ?>
+<?php include 'top.html'; ?>
 
 <!-- Custom admin JS file link -->
 <script src="js/admin_script.js"></script>

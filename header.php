@@ -99,4 +99,5 @@ if(isset($_COOKIE['message'])){
         </div>
     </div>
 
+    <?php include 'top.html'; ?>
 </header>
