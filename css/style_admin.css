@@ -167,7 +167,7 @@ section{
 .header .flex{
    display: flex;
    align-items: center;
-   padding:2rem;
+   padding:0 2rem;
    justify-content: space-between;
    position: relative;
    max-width: 1200px;
@@ -178,6 +178,7 @@ section{
    width: 14rem;
    font-size: 2.5rem;
    color:var(--black);
+   padding: 2rem 0;
 }
 
 .header .flex .logo span{
@@ -185,19 +186,39 @@ section{
 }
 
 .header .flex .navbar a{
-   margin:0 1rem;
+   padding:1rem 1rem;
    font-size: 2rem;
    color:var(--black);
+   border-radius: .5rem;
+   transition: bacground-color 0.1s ease;
 }
 
 .header .flex .navbar a:hover{
    color:var(--purple);
-   text-decoration: underline;
+   /* text-decoration: underline; */
+   background-color: rgba(142, 68, 173, 0.2);
+}
+
+.nav-link {
+   padding:1rem 1rem;
+   font-size: 2rem;
+   color: #000;
+   cursor: default;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.nav-link.active {
+   color: #888;
+   cursor: default;
+   text-decoration: none;
+   font-weight: bold;
 }
 
 .header .flex .icons{
    width: 14rem;
    text-align: right;
+   padding: 2rem 0;
 }
 
 .header .flex .icons div{
@@ -205,6 +226,7 @@ section{
    font-size: 2.5rem;
    cursor: pointer;
    color:var(--black);
+   transition: color 0.1s ease;
 }
 
 .header .flex .icons div:hover{

@@ -44,11 +44,23 @@ if(isset($_COOKIE['message'])){
       <a href="admin_index.php" class="logo">Admin<span>Panel</span></a>
 
       <nav class="navbar">
-         <a href="admin_index.php">Dashboard</a>
-         <a href="admin_buku.php">Buku</a>
-         <a href="admin_user.php">User</a>
-         <a href="admin_peminjaman.php">Peminjaman</a>
-         <a href="admin_pengembalian.php">Pengembalian</a>
+        <?php
+        $current_page = basename($_SERVER['PHP_SELF']);
+        $nav_links = [
+            'admin_index.php' => 'Dashboard',
+            'admin_buku.php' => 'Buku',
+            'admin_user.php' => 'User',
+            'admin_peminjaman.php' => 'Peminjaman',
+            'admin_pengembalian.php' => 'Pengembalian'
+        ];
+        foreach ($nav_links as $url => $title) {
+            if ($current_page == $url) {
+                echo '<span class="nav-link active">' . $title . '</span>';
+            } else {
+                echo '<a href="' . $url . '">' . $title . '</a>';
+            }
+        }
+        ?>
       </nav>
 
       <div class="icons">
