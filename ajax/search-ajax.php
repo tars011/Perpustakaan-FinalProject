@@ -14,7 +14,7 @@ require "../koneksi.php";
                 while($data = mysqli_fetch_assoc($select_books)){
         ?>
         <form action="search.php" method="post" class="box">
-            <img class="image" src="uploaded_img/<?php echo $data['foto']; ?>" alt="">
+            <img class="image" src="uploaded_img/<?php echo $data['foto']; ?>" alt="" onclick="openModal(<?php echo $data['id_buku']; ?>)">
             <div class="name"><?php echo $data['judul']; ?></div>
             <input type="hidden" name="id_buku" value="<?php echo $data['id_buku']; ?>">
             <div class="details">
