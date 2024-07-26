@@ -26,9 +26,12 @@ if(isset($_COOKIE['message'])){
     $messages = json_decode($_COOKIE['message'], true);
     foreach($messages as $message){
         echo '
+        <div class="message-container">
         <div class="message">
             <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+            <!-- <i class="fas fa-times" onclick="this.parentElement.remove();"></i> -->
+            <i class="fas fa-times"></i>
+        </div>
         </div>
         ';
     }
@@ -40,7 +43,7 @@ if(isset($_COOKIE['message'])){
 <header class="header"  id="top">
     <div class="header-2">
         <div class="flex">
-            <a href="index.php" class="logo">Library</a>
+            <a title="Library" href="index.php" class="logo">Library</a>
 
             <nav class="navbar">
                 <?php
@@ -63,18 +66,18 @@ if(isset($_COOKIE['message'])){
             </nav>
 
             <div class="icons">
-                <div id="menu-btn" class="fas fa-bars"></div>
-                <a href="search.php" class="fas fa-search"></a>
-                <div id="user-btn" class="fas fa-user"></div>
+                <div title="Menu" id="menu-btn" class="fas fa-bars"></div>
+                <a title="Search" href="search.php" class="fas fa-search"></a>
+                <div title="User" id="user-btn" class="fas fa-user"></div>
                 <?php
                 if ((isset($_SESSION['id_user'])) && (isset($_SESSION['login']))) {
                     $id_user = $_SESSION['id_user'];
                     $select_loans_number = mysqli_query($conn, "SELECT * FROM peminjaman WHERE id_user = $id_user") or die('query failed');
                     $loans_rows_number = mysqli_num_rows($select_loans_number); 
                 ?>
-                <a href="loans.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $loans_rows_number; ?>)</span> </a>
+                <a title="Pinjaman" href="loans.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $loans_rows_number; ?>)</span> </a>
                 <?php } else { ?>
-                <a href="loans.php"> <i class="fas fa-shopping-cart"></i> </a>
+                <a title="Pinjaman" href="loans.php"> <i class="fas fa-shopping-cart"></i> </a>
                 <?php } ?>
                 
             </div>

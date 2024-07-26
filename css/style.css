@@ -70,17 +70,47 @@ section{
    font-size: 2rem;
 }
 
+@keyframes slideIn {
+   from {
+      top: -100px;
+      opacity: 0;
+   }
+   to {
+      top: 0;
+      opacity: 1;
+   }
+}
+
+@keyframes slideOut {
+   from {
+      top: 0;
+      opacity: 1;
+   }
+   to {
+      top: -100px;
+      opacity: 0;
+   }
+}
+
+.message-container{
+   position: fixed;
+   top:0; right: 0; left: 0;
+   background-color: var(--light-bg);
+   z-index: 10000;
+   animation: slideIn 0.5s forwards;
+}
+
+.message-container.hide {
+   animation: slideOut 0.5s forwards;
+}
+
 .message{
-   position: sticky;
-   top:0;
    margin:0 auto;
    max-width: 1200px;
-   background-color: var(--light-bg);
    padding:2rem;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   z-index: 10000;
    gap:1.5rem;
 }
 
@@ -922,7 +952,7 @@ section{
 
 }
 
-@media (max-width:768px){
+@media (max-width:840px){
 
    #menu-btn{
       display: inline-block;
@@ -941,7 +971,8 @@ section{
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
    }
 
-   .header .header-2 .flex .navbar a{
+   .header .header-2 .flex .navbar a,
+   .header .header-2 .flex .navbar span{
       display: block;
       font-size: 2.5rem;
       margin:2rem;

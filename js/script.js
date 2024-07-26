@@ -104,3 +104,34 @@ function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const messageContainer = document.querySelector('.message-container');
+    const closeButton = document.querySelector('.message i');
+    
+    // Fungsi untuk menampilkan pesan
+    const showMessage = () => {
+       messageContainer.classList.remove('hide');
+    };
+    
+    // Fungsi untuk menyembunyikan pesan
+    const hideMessage = () => {
+       messageContainer.classList.add('hide');
+    };
+    
+    // Tambahkan event listener untuk menghapus elemen setelah animasi selesai
+    messageContainer.addEventListener('animationend', (event) => {
+        if (event.animationName === 'slideOut') {
+            messageContainer.remove();
+        }
+    });
+
+    // Tambahkan event listener pada tombol tutup
+    closeButton.addEventListener('click', hideMessage);
+    
+    // Contoh penggunaan: tampilkan pesan setelah 1 detik
+    setTimeout(showMessage, 1000);
+    
+    // Contoh penggunaan: sembunyikan pesan setelah 5 detik
+    setTimeout(hideMessage, 6000);
+});    
